@@ -1,10 +1,10 @@
 # 글라디에이터 로드 투 프리덤 리믹스 (PS2) 한글패치
 
-PS2 일본판 **グラディエーター ～ロード トゥー フリーダム REMIX～ (SLPM-66132)** 용 비공식 한국어 패치입니다. 대사·메뉴·튜토리얼·경고·스킬 설명·오프닝/엔딩 문장 등 게임 속 일본어 텍스트를 한국어로 바꿨습니다. 현재 배포판은 **v1.0.2 (2026-10-14)** 입니다.
+PS2 일본판 **グラディエーター ～ロード トゥー フリーダム REMIX～ (SLPM-66132)** 용 비공식 한국어 패치입니다. 대사·메뉴·튜토리얼·경고·스킬 설명·오프닝/엔딩 문장 등 게임 속 일본어 텍스트를 한국어로 바꿨습니다. 현재 배포판은 **v1.0.3 (2026-10-14)** 입니다.
 
 [패치 다운로드](https://github.com/snake759494/gladiator-road-to-freedom-remix-ps2-korean-patch/releases/latest) · [기술 설명](docs/TECHNICAL.md) · [재빌드](docs/BUILD.md) · [변경 기록](CHANGELOG.md) · [권리 안내](RIGHTS.md)
 
-릴리즈 첨부 파일은 **한글패치 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.2.xdelta`** 와 **PCSX2용 16:9 와이드 패치 `SLPM-66132_507D6676.pnach`** 두 개입니다. 저장소에는 제작 도구와 기술 문서만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본은 포함하지 않습니다.
+릴리즈 첨부 파일은 **한글패치 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.3.xdelta`** 와 **PCSX2용 16:9 와이드 패치 `SLPM-66132_D855C8E9.pnach`** 두 개입니다. 저장소에는 제작 도구와 기술 문서만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본은 포함하지 않습니다.
 
 ## 대상 버전
 
@@ -15,10 +15,10 @@ PS2 일본판 **グラディエーター ～ロード トゥー フリーダム 
 | 원본 ISO 크기 | 3,104,931,840 바이트 |
 | **원본 ISO MD5** | `ce7ee782974d853dce899da1c73fe96b` |
 | 원본 ISO SHA-256 | `eee3b03b869a42efeca32126000dc17b262e1998fa8e9976a0cdce353e11e115` |
-| xdelta 파일 크기 | 559,305 바이트 |
-| xdelta SHA-256 | `e519989e79113dc2038c806a471736c01bcdc2517d9de4095f5bb76522ba6f58` |
+| xdelta 파일 크기 | 559,320 바이트 |
+| xdelta SHA-256 | `cc6ab74ea714331a36c522be340bfcf8314b966c89cf7851e258afb5a704ccfe` |
 | 적용 결과 ISO 크기 | 3,104,931,840 바이트 |
-| 적용 결과 ISO SHA-256 | `489357125dad67579182bea7d98f7dea526493e580b9415c99bceeb3176451f5` |
+| 적용 결과 ISO SHA-256 | `9648477c0fa8090e9f0012db449948000e65e311987ea88146c5fc418b2797b5` |
 
 ## 패치 적용 방법
 
@@ -32,7 +32,7 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Gladiator - Road to Freedom - Remix 
 
 ### xdelta UI 사용
 
-1. 릴리즈에서 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.2.xdelta` 를 받습니다.
+1. 릴리즈에서 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.3.xdelta` 를 받습니다.
 2. xdelta3 패치를 지원하는 도구(xdeltaUI 등)의 **Apply Patch** 기능을 엽니다.
 3. **Patch** 에 xdelta 파일, **Source File** 에 해시가 일치하는 원본 `.iso` 를 선택합니다.
 4. **Output File** 에 새 파일명(예: `Gladiator - Road to Freedom - Remix (Korean).iso`)을 지정합니다.
@@ -40,18 +40,18 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Gladiator - Road to Freedom - Remix 
 ### 명령줄 사용
 
 ```powershell
-.\xdelta3.exe -d -s '.\Gladiator - Road to Freedom - Remix (Japan).iso' '.\Gladiator_Road_to_Freedom_Remix_KO_v1.0.2.xdelta' '.\Gladiator - Road to Freedom - Remix (Korean).iso'
+.\xdelta3.exe -d -s '.\Gladiator - Road to Freedom - Remix (Japan).iso' '.\Gladiator_Road_to_Freedom_Remix_KO_v1.0.3.xdelta' '.\Gladiator - Road to Freedom - Remix (Korean).iso'
 ```
 
 ## 16:9 와이드 화면 패치 (PCSX2)
 
-`SLPM-66132_507D6676.pnach` 는 v1.0.2 한글판용 와이드 패치입니다. 저장소의 `widescreen/` 폴더에도 같은 파일이 있습니다.
+`SLPM-66132_D855C8E9.pnach` 는 v1.0.3 한글판용 와이드 패치입니다. 저장소의 `widescreen/` 폴더에도 같은 파일이 있습니다.
 
-- PCSX2 에 내장된 원본 일본판용 와이드 패치(CRC DDF29822)와 **내용이 같습니다.** 한글판은 실행 파일 문자열을 고쳐 CRC 가 **507D6676** 으로 바뀌었기 때문에 내장 패치가 자동으로 적용되지 않습니다. 이 파일을 쓰세요.
+- PCSX2 에 내장된 원본 일본판용 와이드 패치(CRC DDF29822)와 **내용이 같습니다.** 한글판은 실행 파일 문자열을 고쳐 CRC 가 **D855C8E9** 으로 바뀌었기 때문에 내장 패치가 자동으로 적용되지 않습니다. 이 파일을 쓰세요.
 - 패치가 고치는 두 곳(EE `0x00C86E5C`, `0x00C86E60`, 카메라 시야 값)은 한글패치가 건드리지 않은 실행 중 데이터 영역입니다.
 
 **적용 방법 (PCSX2 2.x)**
-1. `SLPM-66132_507D6676.pnach` 를 내려받습니다. **파일 이름은 바꾸지 마세요.**
+1. `SLPM-66132_D855C8E9.pnach` 를 내려받습니다. **파일 이름은 바꾸지 마세요.**
 2. PCSX2 의 `patches` 폴더에 넣습니다.
    - 설치판: `문서\PCSX2\patches`
    - 포터블판: PCSX2 실행 파일 옆의 `patches` 폴더
@@ -63,14 +63,14 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Gladiator - Road to Freedom - Remix 
 
 **참고**
 - 화면 비율은 패치가 자동으로 16:9 로 바꿉니다(`gsaspectratio=16:9`). 그래픽 설정의 화면 비율은 기본값(자동)으로 두세요.
-- 패치 탭에 항목이 보이지 않으면 게임 속성의 요약 탭에서 CRC 가 **507D6676** 인지 확인하세요.
+- 패치 탭에 항목이 보이지 않으면 게임 속성의 요약 탭에서 CRC 가 **D855C8E9** 인지 확인하세요.
 - 2D 메뉴·글자는 가로로 늘어나 보일 수 있습니다(원본 패치와 동일, HUD 보정 없음).
 - 실기(PS2 본체)에서는 쓸 수 없습니다(PCSX2 전용).
 
 ## 한글화 범위
 
 - 데이터 표(CSB) 215개 파일 14,074칸과 컴파일 표(ARY) 23종 3,591문장: 이벤트 대사, 훈련사·흥행사·상인 대화, 캐릭터 생성 문답, 버튼 안내, 경고·메모리 카드 메시지, 스킬 패널 이름·설명, 훈련 과제와 튜토리얼, 투기 종류·조건, 평가 문구, 오프닝·엔딩 문장
-- 실행 파일 문자열 295개: 방·시설 안내, 무기점·정련 메뉴, 훈련 포인트 설명, 투기 시작 외침, 포즈 메뉴 설명, 전적 항목
+- 실행 파일 문자열 297개: 방·시설 안내, 무기점·정련 메뉴, 훈련 포인트 설명, 투기 시작 외침, 포즈 메뉴 설명, 전적 항목
 - 이름 입력: 가나 표를 한글 음절 표(90칸)로 교체, 기본·추천 이름 77개(그리스·로마 신화 인물명)를 한글 표기로 변경 (예: 글라우코스)
 - 글꼴: 작은 글꼴·큰 글꼴 모두에 한글 802자를 나눔스퀘어네오 Regular 로 그려 넣음 (원본의 1px 그림자·외곽선 스타일 재현)
 
