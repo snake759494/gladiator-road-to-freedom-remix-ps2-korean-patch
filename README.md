@@ -1,10 +1,10 @@
 # 글라디에이터 로드 투 프리덤 리믹스 (PS2) 한글패치
 
-PS2 일본판 **グラディエーター ～ロード トゥー フリーダム REMIX～ (SLPM-66132)** 용 비공식 한국어 패치입니다. 대사·메뉴·튜토리얼·경고·스킬 설명·오프닝/엔딩 문장 등 게임 속 일본어 텍스트를 한국어로 바꿨습니다. 현재 배포판은 **v1.0 (2026-10-14)** 입니다.
+PS2 일본판 **グラディエーター ～ロード トゥー フリーダム REMIX～ (SLPM-66132)** 용 비공식 한국어 패치입니다. 대사·메뉴·튜토리얼·경고·스킬 설명·오프닝/엔딩 문장 등 게임 속 일본어 텍스트를 한국어로 바꿨습니다. 현재 배포판은 **v1.0.1 (2026-10-14)** 입니다.
 
 [패치 다운로드](https://github.com/snake759494/gladiator-road-to-freedom-remix-ps2-korean-patch/releases/latest) · [기술 설명](docs/TECHNICAL.md) · [재빌드](docs/BUILD.md) · [변경 기록](CHANGELOG.md) · [권리 안내](RIGHTS.md)
 
-릴리즈 첨부 파일은 **한글패치 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.xdelta`** 와 **PCSX2용 16:9 와이드 패치 `SLPM-66132_DAE8C146.pnach`** 두 개입니다. 저장소에는 제작 도구와 기술 문서만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본은 포함하지 않습니다.
+릴리즈 첨부 파일은 **한글패치 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.1.xdelta`** 와 **PCSX2용 16:9 와이드 패치 `SLPM-66132_DAE8C146.pnach`** 두 개입니다. 저장소에는 제작 도구와 기술 문서만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본은 포함하지 않습니다.
 
 ## 대상 버전
 
@@ -15,10 +15,10 @@ PS2 일본판 **グラディエーター ～ロード トゥー フリーダム 
 | 원본 ISO 크기 | 3,104,931,840 바이트 |
 | **원본 ISO MD5** | `ce7ee782974d853dce899da1c73fe96b` |
 | 원본 ISO SHA-256 | `eee3b03b869a42efeca32126000dc17b262e1998fa8e9976a0cdce353e11e115` |
-| xdelta 파일 크기 | 541,082 바이트 |
-| xdelta SHA-256 | `251157b29870d6a430ca1126bc1607a5f4f805d825f5271146bc42c05be7764d` |
+| xdelta 파일 크기 | 541,788 바이트 |
+| xdelta SHA-256 | `b2f8b58cf970d80c2868b7bb5550ba532ad2ef4fb9747fb444078031cae3398b` |
 | 적용 결과 ISO 크기 | 3,104,931,840 바이트 |
-| 적용 결과 ISO SHA-256 | `0a2f0d5c272cbe89fcb0ae0ccc9bc4d0e8ab1f59280e83ba2a590a150be2895b` |
+| 적용 결과 ISO SHA-256 | `fa9b3b1f1c276c9a79599bfdb308618d7d75fc1cafd48b2ef2eac01d646cfcba` |
 
 ## 패치 적용 방법
 
@@ -32,7 +32,7 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Gladiator - Road to Freedom - Remix 
 
 ### xdelta UI 사용
 
-1. 릴리즈에서 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.xdelta` 를 받습니다.
+1. 릴리즈에서 `Gladiator_Road_to_Freedom_Remix_KO_v1.0.1.xdelta` 를 받습니다.
 2. xdelta3 패치를 지원하는 도구(xdeltaUI 등)의 **Apply Patch** 기능을 엽니다.
 3. **Patch** 에 xdelta 파일, **Source File** 에 해시가 일치하는 원본 `.iso` 를 선택합니다.
 4. **Output File** 에 새 파일명(예: `Gladiator - Road to Freedom - Remix (Korean).iso`)을 지정합니다.
@@ -40,12 +40,12 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Gladiator - Road to Freedom - Remix 
 ### 명령줄 사용
 
 ```powershell
-.\xdelta3.exe -d -s '.\Gladiator - Road to Freedom - Remix (Japan).iso' '.\Gladiator_Road_to_Freedom_Remix_KO_v1.0.xdelta' '.\Gladiator - Road to Freedom - Remix (Korean).iso'
+.\xdelta3.exe -d -s '.\Gladiator - Road to Freedom - Remix (Japan).iso' '.\Gladiator_Road_to_Freedom_Remix_KO_v1.0.1.xdelta' '.\Gladiator - Road to Freedom - Remix (Korean).iso'
 ```
 
 ## 16:9 와이드 화면 패치 (PCSX2)
 
-`SLPM-66132_DAE8C146.pnach` 는 v1.0 한글판용 와이드 패치입니다. 저장소의 `widescreen/` 폴더에도 같은 파일이 있습니다.
+`SLPM-66132_DAE8C146.pnach` 는 v1.0 / v1.0.1 한글판 공용 와이드 패치입니다. 저장소의 `widescreen/` 폴더에도 같은 파일이 있습니다.
 
 - PCSX2 에 내장된 원본 일본판용 와이드 패치(CRC DDF29822)와 **내용이 같습니다.** 한글판은 실행 파일 문자열을 고쳐 CRC 가 **DAE8C146** 으로 바뀌었기 때문에 내장 패치가 자동으로 적용되지 않습니다. 이 파일을 쓰세요.
 - 패치가 고치는 두 곳(EE `0x00C86E5C`, `0x00C86E60`, 카메라 시야 값)은 한글패치가 건드리지 않은 실행 중 데이터 영역입니다.
