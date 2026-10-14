@@ -26,7 +26,7 @@
 - 큰 글꼴 LARGE.FNT + LARGE0.QTX(23px 칸, 데모·엔딩용): 쓰는 한자만 담은 부분 글꼴이라, 원래 한자 칸을 재활용해 한글을 그리고 대응 코드의 레코드를 새로 지정한다. 20px 안티앨리어싱, 팔레트 5~15 회색 + 2 그림자 + 1 외곽선.
 
 ## 와이드 패치
-- PCSX2 내장 원본판 패치(CRC DDF29822)의 두 줄을 한글판 CRC(v1.0.4: 493CBB89)용으로 옮겼다. 빌드마다 CRC 가 바뀔 수 있으므로 파일 이름을 다시 확인한다. CRC 는 ELF 전체 32비트 워드 XOR.
+- PCSX2 내장 원본판 패치(CRC DDF29822)의 두 줄을 한글판 CRC(v1.0.5: B4A266D4)용으로 옮겼다. 빌드마다 CRC 가 바뀔 수 있으므로 파일 이름을 다시 확인한다. CRC 는 ELF 전체 32비트 워드 XOR.
 
 ## 이름 입력
 - `NAMEENTRY_WORD`(CSB·ARY): 18행×20열 문자 표, 앞 10열 영숫자·뒤 10열 가나(0~8행 표시, 9~17행 같은 값). 가나 열을 한글 음절 90칸(가나다순)으로 바꾼다.
@@ -35,3 +35,6 @@
 
 ## 영어 표시 문자열
 - 일본어 모드에서도 일부 표(OBJ 아이템 이름, SALVO_TABLE, OBJ_FRG, PANEL_PASSIVE_J·PANEL_A_LEVEL_J 패널 이름, KUNREN_INFO, OPTION_KANRI_J, KGMENU_LAYOUT)는 영어 값을 그대로 보여 준다. 지정한 열(CSB)·파일(ARY)의 영어 값만 번역표(`work/en_ko.tsv`)로 바꾼다(`textcols.EN_CSB`, `EN_ARY`). 모델 ID 같은 소문자 식별자는 번역표에 없으므로 바뀌지 않는다.
+
+## 그림 글자
+- `tools/imgtex.py`(QTX RGBA 디코드/인코드, 원본 왕복 일치 확인), `tools/imgpatch.py`(글자 지우기: 투명/인페인팅 → 한글 그리기 → 팔레트 재양자화), `tools/imgspecs.py`(텍스처별 좌표·문구). GG.DAT 와 DATA.RBB 안의 사본 모두 같은 결과로 교체.

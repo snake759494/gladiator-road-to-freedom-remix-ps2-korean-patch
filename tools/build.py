@@ -4,6 +4,7 @@
 - 크기가 바뀐 GG.DAT · DATA.RBB 는 ISO 끝에 다시 쓰고 ISO9660/UDF 레코드 갱신"""
 import os, shutil, struct, numpy as np
 from PIL import Image, ImageDraw, ImageFont
+import imgpatch, imgspecs
 import gg, csb, textcols, kotext, font, swz, ary, isoio, udf, names
 import rbb as rbbmod
 
@@ -186,7 +187,12 @@ def main():
         led.append((x, y, large_glyph(c, lft)))
     LFn = bytes(lfd)
 
+    _imgc = {}
     def patch_file(nm, d):
+        if nm in imgspecs.SPECS:
+            k = (nm, d)
+            if k not in _imgc: _imgc[k] = imgpatch.apply(d, imgspecs.SPECS[nm])
+            return _imgc[k]
         if nm == 'DATA/NAMEENTRY_WORD.CSB': return names.patch_word_csb(d, cmap)
         if nm == 'DATA/NAMEENTRY_WORD.ARY': return names.patch_word_ary(d, cmap)
         if nm == 'DATA/NAMEENTRY_DEFAULT.CSB': return names.patch_default_csb(d)

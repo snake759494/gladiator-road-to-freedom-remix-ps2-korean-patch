@@ -12,9 +12,10 @@ def load_csb_tr():
     return tr
 def load_elf_tr():
     out=[]
-    for l in open(W+'elf_ko.tsv',encoding='utf8'):
-        l=l.rstrip('\n')
-        if l: a,ko=l.split('\t',1); out.append((int(a,16),ko))
+    for fn in ('elf_ko.tsv','elf_en_ko.tsv'):
+        for l in open(W+fn,encoding='utf8'):
+            l=l.rstrip(chr(10))
+            if l: a,ko=l.split(chr(9),1); out.append((int(a,16),ko))
     return out
 def is_hangul(c): return 0xAC00<=ord(c)<=0xD7A3
 def kanji_slots(fnt_pages,extra=None):
