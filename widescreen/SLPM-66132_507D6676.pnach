@@ -1,0 +1,9 @@
+gametitle=Gladiator - Road to Freedom Remix (J)(SLPM-66132) [Korean patch]
+
+[Widescreen 16:9]
+gsaspectratio=16:9
+description=Widescreen hack (PCSX2 built-in NTSC-J patch DDF29822, ported to Korean patch v1.0.2 CRC)
+
+//Widescreen hack 16:9
+patch=1,EE,20C86E5C,extended,43C00000
+patch=1,EE,20C86E60,extended,3FC70FB3
