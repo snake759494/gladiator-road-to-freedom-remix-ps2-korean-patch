@@ -57,7 +57,7 @@ def patch_ary(data, name, tr, cmap, stat):
     for t, v in a['vals']:
         if t == 3:
             src = v.decode('cp932')
-            if base in textcols.EN_ARY and src in EN:
+            if base in textcols.EN_ARY and src in EN and not isjp(src):
                 vals.append((t, kotext.encode(EN[src], cmap))); ch += 1; continue
             if base not in textcols.ARY_OK:
                 vals.append((t, v)); continue

@@ -14,7 +14,7 @@
 cd tools
 python build.py        # -> ..\Gladiator - Road to Freedom - Remix (Korean).iso
 cd ..
-xdelta3 -e -s "Gladiator - Road to Freedom - Remix (Japan).iso" "Gladiator - Road to Freedom - Remix (Korean).iso" Gladiator_Road_to_Freedom_Remix_KO_v1.0.5.xdelta
+xdelta3 -e -s "Gladiator - Road to Freedom - Remix (Japan).iso" "Gladiator - Road to Freedom - Remix (Korean).iso" Gladiator_Road_to_Freedom_Remix_KO_v1.0.6.xdelta
 ```
 
 - `build.py`: 번역 로드 → 한글-한자 코드 대응 → GG.DAT·DATA.RBB 안 CSB/ARY/글꼴 수정 → ELF 문자열 → ISO 기록(크기가 늘면 ISO 끝으로 옮기고 ISO9660·UDF 갱신).

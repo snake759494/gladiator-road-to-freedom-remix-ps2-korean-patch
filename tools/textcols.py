@@ -40,8 +40,9 @@ KEEP={'ロゴ','ランダム','プレーヤー名','終わり'}   # 연출·스�
 
 # 일본어 모드에서도 영어로 표시되는 값 (work/en_ko.tsv 로 번역)
 EN_CSB={'OBJ_FRG':{'名前'},'SALVO_TABLE':{'Title'},'PANEL_PASSIVE_J':{'パネル名'},'PANEL_A_LEVEL_J':{'パネル名'},
- 'KUNREN_INFO':{'テキスト'},'OPTION_KANRI_J':{'データ１'},'KGMENU_LAYOUT':{'カーソル用'}}
-EN_ARY={'OBJ','OBJ_FRG','SALVO_TABLE','PANEL_PASSIVE_J','PANEL_A_LEVEL_J','KUNREN_INFO','KGMENU_LAYOUT'}
+ 'KUNREN_INFO':{'テキスト'},'OPTION_KANRI_J':{'データ１'},'KGMENU_LAYOUT':{'カーソル用'},
+ 'CTRL_GUIDANCE':{'邦文１','邦文２','邦文３','邦文４'},'TRA_COMMENT':{'日本語見出し説明','日本語テキスト１','日本語テキスト２','日本語テキスト３','日本語テキスト４','日本語テキスト５'}}
+EN_ARY={'CTRL_GUIDANCE','TRA_COMMENT','OBJ','OBJ_FRG','SALVO_TABLE','PANEL_PASSIVE_J','PANEL_A_LEVEL_J','KUNREN_INFO','KGMENU_LAYOUT'}
 def load_en():
     d={}
     for l in open('D:/ps2/글라디에이터_로드투프리덤_리믹스/work/en_ko.tsv',encoding='utf8'):
