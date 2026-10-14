@@ -4,7 +4,7 @@
 - 크기가 바뀐 GG.DAT · DATA.RBB 는 ISO 끝에 다시 쓰고 ISO9660/UDF 레코드 갱신"""
 import os, shutil, struct, numpy as np
 from PIL import Image, ImageDraw, ImageFont
-import gg, csb, textcols, kotext, font, swz, ary, isoio, udf
+import gg, csb, textcols, kotext, font, swz, ary, isoio, udf, names
 import rbb as rbbmod
 
 ROOT = 'D:/ps2/글라디에이터_로드투프리덤_리믹스/'
@@ -153,7 +153,7 @@ def main():
     byname = {nm: (i, off, sz) for i, nm, off, sz in G}
     getg = lambda nm: GG[byname[nm][1]:byname[nm][1] + byname[nm][2]]
     P = font.parse_fnt(getg('DATA/GGFONT.FNT')); LF = getg('DATA/LARGE.FNT'); LP = font.parse_fnt(LF)
-    cmap = kotext.build_map(list(tr.values()) + [k for a, k in el], P, lambda u: (u >> 8) in LP)
+    cmap = kotext.build_map(list(tr.values()) + [k for a, k in el] + [names.chars()], P, lambda u: (u >> 8) in LP)
     stat = {'cells': 0, 'ary': 0, 'miss': set()}
 
     # 글꼴 준비
@@ -173,6 +173,10 @@ def main():
     LFn = bytes(lfd)
 
     def patch_file(nm, d):
+        if nm == 'DATA/NAMEENTRY_WORD.CSB': return names.patch_word_csb(d, cmap)
+        if nm == 'DATA/NAMEENTRY_WORD.ARY': return names.patch_word_ary(d, cmap)
+        if nm == 'DATA/NAMEENTRY_DEFAULT.CSB': return names.patch_default_csb(d)
+        if nm == 'DATA/NAMEENTRY_DEFAULT.ARY': return names.patch_default_ary(d)
         if nm.endswith('.CSB'): return patch_csb(d, nm, tr, cmap, stat)
         if nm.endswith('.ARY'): return patch_ary(d, nm, tr, cmap, stat)
         if nm == 'DATA/GGFONT0.QTX': return tex_edit(d, 1024, 1024, ed[0], 17, 17)

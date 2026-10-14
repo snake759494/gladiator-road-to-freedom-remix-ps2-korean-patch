@@ -1,16 +1,16 @@
 {
- "version": "v1.0.1",
- "asset": "Gladiator_Road_to_Freedom_Remix_KO_v1.0.1.xdelta",
- "asset_size": 541788,
- "asset_sha256": "b2f8b58cf970d80c2868b7bb5550ba532ad2ef4fb9747fb444078031cae3398b",
+ "version": "v1.0.2",
+ "asset": "Gladiator_Road_to_Freedom_Remix_KO_v1.0.2.xdelta",
+ "asset_size": 559305,
+ "asset_sha256": "e519989e79113dc2038c806a471736c01bcdc2517d9de4095f5bb76522ba6f58",
  "source_iso_size": 3104931840,
  "source_iso_md5": "ce7ee782974d853dce899da1c73fe96b",
  "source_iso_sha256": "eee3b03b869a42efeca32126000dc17b262e1998fa8e9976a0cdce353e11e115",
  "result_iso_size": 3104931840,
- "result_iso_sha256": "fa9b3b1f1c276c9a79599bfdb308618d7d75fc1cafd48b2ef2eac01d646cfcba",
- "widescreen_pnach": "SLPM-66132_DAE8C146.pnach",
- "widescreen_pnach_size": 308,
- "widescreen_pnach_sha256": "5c31a3fca2ed10727f9a92d427c7293232802944290ead415c3e455994abaede",
+ "result_iso_sha256": "489357125dad67579182bea7d98f7dea526493e580b9415c99bceeb3176451f5",
+ "widescreen_pnach": "SLPM-66132_507D6676.pnach",
+ "widescreen_pnach_size": 315,
+ "widescreen_pnach_sha256": "3bd69e112056e5f6e3f9931578bdfb45dc0b3974338bfa9e6d600bf0d6aebab4",
  "original_elf_crc": "DDF29822",
- "korean_elf_crc": "DAE8C146"
+ "korean_elf_crc": "507D6676"
 }
