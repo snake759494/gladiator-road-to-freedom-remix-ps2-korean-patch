@@ -19,13 +19,23 @@ def isjp(t): return any(ord(c) >= 0x3000 for c in t)
 
 
 # ---------- 텍스트 ----------
+EN = textcols.load_en()
+
+
 def patch_csb(data, name, tr, cmap, stat):
     cs = textcols.cols_for(name)
-    if not cs: return None
+    base = name.replace('DATA/', '').rsplit('.', 1)[0]
+    en = textcols.EN_CSB.get(base, set())
+    if not cs and not en: return None
     d = bytearray(data); t = csb.parse(data); ch = 0
     for ri, row in enumerate(t['cells']):
         for c, cell in enumerate(row):
             cn = s(t['cn'][c])
+            if cn in en and s(cell) in EN:
+                e = kotext.encode(EN[s(cell)], cmap)
+                assert len(e) < t['cw'], (name, EN[s(cell)])
+                p = t['doff'] + (ri * t['cols'] + c) * t['cw']
+                d[p:p + t['cw']] = e + bytes(t['cw'] - len(e)); ch += 1; continue
             ok = (cs == 'ALL' and not cn.startswith('英語')) or (cs != 'ALL' and cn in cs)
             if not (ok and csb.jp(cell)): continue
             src = s(cell)
@@ -41,11 +51,15 @@ def patch_csb(data, name, tr, cmap, stat):
 
 def patch_ary(data, name, tr, cmap, stat):
     base = name.replace('DATA/', '').rsplit('.', 1)[0]
-    if base not in textcols.ARY_OK: return None
+    if base not in textcols.ARY_OK and base not in textcols.EN_ARY: return None
     a = ary.parse(data); ch = 0; vals = []
     for t, v in a['vals']:
         if t == 3:
             src = v.decode('cp932')
+            if base in textcols.EN_ARY and src in EN:
+                vals.append((t, kotext.encode(EN[src], cmap))); ch += 1; continue
+            if base not in textcols.ARY_OK:
+                vals.append((t, v)); continue
             if isjp(src) and src in tr and src not in textcols.KEEP:
                 v = kotext.encode(tr[src], cmap); ch += 1
         vals.append((t, v))
@@ -153,7 +167,7 @@ def main():
     byname = {nm: (i, off, sz) for i, nm, off, sz in G}
     getg = lambda nm: GG[byname[nm][1]:byname[nm][1] + byname[nm][2]]
     P = font.parse_fnt(getg('DATA/GGFONT.FNT')); LF = getg('DATA/LARGE.FNT'); LP = font.parse_fnt(LF)
-    cmap = kotext.build_map(list(tr.values()) + [k for a, k in el] + [names.chars()], P, lambda u: (u >> 8) in LP)
+    cmap = kotext.build_map(list(tr.values()) + [k for a, k in el] + [names.chars()] + list(EN.values()), P, lambda u: (u >> 8) in LP)
     stat = {'cells': 0, 'ary': 0, 'miss': set()}
 
     # 글꼴 준비
@@ -245,7 +259,7 @@ def main():
             pos, l, sz = T2[path]; room = (sz + SEC - 1) // SEC * SEC
             if len(data) <= room: lba = l
             else: lba = end; end += (len(data) + SEC - 1) // SEC
-            f.seek(lba * SEC); f.write(data + bytes(-len(data) % SEC))
+            f.seek(lba * SEC); f.write(data); f.write(bytes(-len(data) % SEC))
             if (lba, len(data)) != (l, sz): isoio.set_file(f, T2, u, path, lba, len(data))
             print(f'  {path}: LBA {l}->{lba} size {sz}->{len(data)}')
         isoio.finish(f, u, end + 1)

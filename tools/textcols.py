@@ -37,3 +37,16 @@ ARY_OK={'CTRL_GUIDANCE','ENDING','ENDING00','ENDING01','ENDING02','ENDING03','EN
  'PANEL_A_LARGE_SHIELD_J','PANEL_A_ONE_SWORD_J','PANEL_A_STRIKER_J','PANEL_A_TWO_SWORDS_J','PANEL_PASSIVE_J',
  'REP_TABLE','TRA_COMMENT'}
 KEEP={'ロゴ','ランダム','プレーヤー名','終わり'}   # 연출·스크립트 지시어(엔딩 로고, 메뉴의 무작위 이름·이름 출력·종료)
+
+# 일본어 모드에서도 영어로 표시되는 값 (work/en_ko.tsv 로 번역)
+EN_CSB={'OBJ_FRG':{'名前'},'SALVO_TABLE':{'Title'},'PANEL_PASSIVE_J':{'パネル名'},'PANEL_A_LEVEL_J':{'パネル名'},
+ 'KUNREN_INFO':{'テキスト'},'OPTION_KANRI_J':{'データ１'},'KGMENU_LAYOUT':{'カーソル用'}}
+EN_ARY={'OBJ','OBJ_FRG','SALVO_TABLE','PANEL_PASSIVE_J','PANEL_A_LEVEL_J','KUNREN_INFO','KGMENU_LAYOUT'}
+def load_en():
+    d={}
+    for l in open('D:/ps2/글라디에이터_로드투프리덤_리믹스/work/en_ko.tsv',encoding='utf8'):
+        l=l.rstrip(chr(10))
+        if chr(9) in l:
+            a,b=l.split(chr(9),1)
+            if a!=b: d[a]=b
+    return d
